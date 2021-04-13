@@ -1,7 +1,8 @@
-import {API} from '../../config'
+// import {API} from '../../config'
+
 
 export const signup=(user)=>{
-    return fetch(`${API}/api/postuser`,{
+    return fetch (`http://localhost:5000/api/postuser`,{
         method:"POST",
         headers:{
             Accept:'application/json',

@@ -56,3 +56,38 @@ export const isAuthenticated=()=>{
         return false;
     }
 }
+
+//For Signout
+export const signout=(next)=>{
+    if(typeof window !=='undefined'){
+        localStorage.removeItem('jwt',JSON.stringify('jwt'));
+        next();
+        return fetch(`http://localhost:5000/api/signout`,{
+            method:"POST",
+        })
+        .then(response=>{
+            console.log('signout',response)
+        })
+        .catch(err=>console.log(err))
+    }
+   }
+
+//forget Password
+
+export const forgetpassword=(user)=>{
+
+    return fetch(`http://localhost:5000/api/resetpassword`,{
+     method:"POST",
+     headers:{
+         Accept:'application/json',
+         "Content-Type":"application/json"
+     },
+     body:JSON.stringify(user)
+    })
+    .then(response=>{
+       return response.json() ;
+    })
+    .catch(err=>{
+        console.log(err);
+    });
+   };

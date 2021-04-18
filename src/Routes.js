@@ -20,7 +20,7 @@ const Routes=()=> {
                 <Route exact path="/signup" component={Signup}/>
                 <Route exact path="/signin" component={Signin}/>
                 <Route exact path="/forget/password" component={Forgetpassword}/>
-                <Route exact path="/reset/password" component={Resetpassword}/>
+                <Route exact path="/reset/password/:token" component={Resetpassword}/>
                 <Route exact path="/email/confirmation/:token" component={Confirm}/>
                 
                 <PrivateRoute exact path="/user/dashboard" component={UserDashboard} />

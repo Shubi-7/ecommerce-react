@@ -1,7 +1,10 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, {Fragment} from 'react'
+import {Link, withRouter} from 'react-router-dom'
+import {signout,isAuthenticated} from '../auth';
 
-const Navbar=()=> {
+
+const Navbar=({history})=> {
+
     return (
         <>
 
@@ -16,8 +19,35 @@ const Navbar=()=> {
                 <div className="head-t">
                     <ul className="card">
                         <li><Link to="wishlist.html" ><i className="fa fa-heart" aria-hidden="true"></i>Wishlist</Link></li>
-                        <li><Link to="/signin" ><i className="fa fa-user" aria-hidden="true"></i>Login</Link></li>
-                        <li><Link to="/signup" ><i className="fa fa-arrow-right" aria-hidden="true"></i>Register</Link></li>
+                        {!isAuthenticated() &&(
+                        <Fragment>
+                            <li><Link to="/signin" ><i className="fa fa-user" aria-hidden="true"></i>Login</Link></li>
+                            <li><Link to="/signup" ><i className="fa fa-arrow-right" aria-hidden="true"></i>Register</Link></li>
+                        </Fragment>
+                        )}
+
+                        {isAuthenticated() && isAuthenticated().user.role===0 && (
+                            <li>
+                                <Link to="/user/dashboard">Profile
+                                </Link>
+                            </li>
+                        )}
+                        {isAuthenticated() && isAuthenticated().user.role===1 &&(
+                            <li>
+                                <Link to="/admin/dashboard">Admin dashboard
+                                </Link>
+                            </li>
+                        )}
+                        
+                        {isAuthenticated()&&(
+                            <Fragment>
+                                <button style={{cursor:'pointer', border:'none', outline:'none'}}
+                                onClick={()=>signout(()=>{
+                                    history.push('/');
+                                })}>Sign Out</button>
+                            </Fragment>
+                        )}
+
                         <li><Link to="about.html" ><i className="fa fa-file-text-o" aria-hidden="true"></i>Order History</Link></li>
                         <li><Link to="shipping.html" ><i className="fa fa-ship" aria-hidden="true"></i>Shipping</Link></li>
                     </ul>	
@@ -199,4 +229,4 @@ const Navbar=()=> {
     )
 }
 
-export default Navbar
+export default withRouter(Navbar)

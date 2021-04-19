@@ -28,23 +28,29 @@ const Navbar=({history})=> {
 
                         {isAuthenticated() && isAuthenticated().user.role===0 && (
                             <li>
-                                <Link to="/user/dashboard">Profile
+                                <Link to="/user/dashboard"><i className="fa fa-user" aria-hidden="true"></i> Profile
                                 </Link>
                             </li>
                         )}
                         {isAuthenticated() && isAuthenticated().user.role===1 &&(
                             <li>
-                                <Link to="/admin/dashboard">Admin dashboard
+                                <Link to="/admin/dashboard">
+                                <i className="fa fa-user" aria-hidden="true"></i>
+                                Admin dashboard
                                 </Link>
                             </li>
                         )}
                         
                         {isAuthenticated()&&(
                             <Fragment>
-                                <button style={{cursor:'pointer', border:'none', outline:'none'}}
+                                <li>
+                                <Link style={{cursor:'pointer', border:'none', outline:'none'}}
                                 onClick={()=>signout(()=>{
                                     history.push('/');
-                                })}>Sign Out</button>
+                                })}>
+                                <i className="fa fa-sign-out" aria-hidden="true"></i>
+                                Sign Out</Link>
+                                </li>
                             </Fragment>
                         )}
 

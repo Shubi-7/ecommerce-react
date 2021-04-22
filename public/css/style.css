@@ -3163,3 +3163,18 @@ h1.t-button {
     font-size: 13px;
 }
 }
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #999999;
+    opacity: 1; /* Firefox */
+  }
+
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #999999;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color:#999999;
+  }

@@ -16,7 +16,7 @@ const Card = ({ product }) => {
 
                     <div class="mid-1">
                         <div class="women">
-                            <h6><Link to="#">{product.product_name}</Link></h6>
+                            <h6><Link to={`/productdetails/${product._id}`}>{product.product_name}</Link></h6>
                         </div>
                         <div class="mid-2">
                             <p ><em class="item_price">Rs.{product.product_price}</em></p>

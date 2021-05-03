@@ -13,6 +13,7 @@ import AdminDashboard from './components/auth/AdminDashboard'
 import AddCategory from './components/admin/AddCategory'
 import AddProduct from './components/admin/AddProduct'
 import ProductDetails from './components/pages/ProductDetails'
+import Products from './components/pages/Products'
 
 const Routes=()=> {
     return (
@@ -26,6 +27,7 @@ const Routes=()=> {
                 <Route exact path="/forget/password" component={Forgetpassword}/>
                 <Route exact path="/reset/password/:token" component={Resetpassword}/>
                 <Route exact path="/email/confirmation/:token" component={Confirm}/>
+                <Route exact path="/products" component={Products}/>
                 
                 <PrivateRoute exact path="/user/dashboard" component={UserDashboard} />
                 <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />

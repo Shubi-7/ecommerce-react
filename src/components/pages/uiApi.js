@@ -41,3 +41,36 @@ export const listRelated=(productId)=>{
     
 }
 
+//to fetch categories
+export const getCategories=()=>{
+    return fetch(`http://localhost:5000/api/showcategory`,{
+        method:'GET'
+    })
+    .then(response=>{
+     return response.json() ;
+  })
+  .catch(err=>{
+      console.log(err);
+  });
+    
+}
+
+//to filter products by category and price range
+export const getFilteredProducts=(skip,limit,filters={})=>{
+    let data={limit,skip,filters}
+
+    return fetch(`http://localhost:5000/api/products/by/search`,{
+     method:"POST",
+     headers:{
+         Accept:'application/json',
+         "Content-Type":"application/json",
+     },
+     body:JSON.stringify(data)
+    })
+    .then(response=>{
+       return response.json() ;
+    })
+    .catch(err=>{
+        console.log(err);
+    });
+   };

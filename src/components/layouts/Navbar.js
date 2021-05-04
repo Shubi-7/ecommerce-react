@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import {signout,isAuthenticated} from '../auth';
+import Search from '../pages/Search';
 
 
 const Navbar=({history})=> {
@@ -228,7 +229,8 @@ const Navbar=({history})=> {
                         <div className="clearfix"></div>
                     </div>
                         
-                    </div>			
+                    </div>
+                    <Search/>			
             </div>
                         
         </>

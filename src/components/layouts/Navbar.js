@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import {signout,isAuthenticated} from '../auth';
+import { itemTotal } from '../pages/cartApi';
 import Search from '../pages/Search';
 
 
@@ -224,7 +225,7 @@ const Navbar=({history})=> {
                         </nav>
                         <div className="cart" >
                         
-                            <span className="fa fa-shopping-cart my-cart-icon"><span className="badge badge-notify my-cart-badge"></span></span>
+                            <Link to="/cart"><span className="fa fa-shopping-cart my-cart-icon"><span className="badge badge-notify my-cart-badge">{itemTotal()}</span></span></Link>
                         </div>
                         <div className="clearfix"></div>
                     </div>

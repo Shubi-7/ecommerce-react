@@ -14,6 +14,7 @@ import AddCategory from './components/admin/AddCategory'
 import AddProduct from './components/admin/AddProduct'
 import ProductDetails from './components/pages/ProductDetails'
 import Products from './components/pages/Products'
+import Cart from './components/pages/Cart'
 
 const Routes=()=> {
     return (
@@ -28,6 +29,7 @@ const Routes=()=> {
                 <Route exact path="/reset/password/:token" component={Resetpassword}/>
                 <Route exact path="/email/confirmation/:token" component={Confirm}/>
                 <Route exact path="/products" component={Products}/>
+                <Route exact path='/cart' component={Cart}/>
                 
                 <PrivateRoute exact path="/user/dashboard" component={UserDashboard} />
                 <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
